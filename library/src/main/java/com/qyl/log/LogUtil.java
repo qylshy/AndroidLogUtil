@@ -31,8 +31,6 @@ public class LogUtil {
 
     public static final int ASSERT = 7;
 
-    public static String TAG = "LOG";
-    public static boolean DEBUGB = BuildConfig.DEBUG;
     private static LogConfig config;
 
     private LogUtil() {
@@ -261,10 +259,10 @@ public class LogUtil {
 
         }catch (Exception e){
             e.printStackTrace();
-            tag = TAG;
+            tag = config.defaultTag;
         }
         if (TextUtils.isEmpty(tag)){
-            tag = TAG;
+            tag = config.defaultTag;
         }
 
         return tag;

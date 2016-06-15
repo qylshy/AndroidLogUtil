@@ -18,8 +18,11 @@ public class MainApplication extends Application {
                 .setLogLevel(LogUtil.VERBOSE)
                 .setNeedSaveToFile(true)
                 .addSaveRule("MainActivity", true)
-                .addSaveRule("ImageDetailActivity", true)
-                .addSaveRule("ImageDetailActivity_", true)
+                .addSaveRule("Feed", true)
+                .prefix("prefix")
+                .suffix("suffix")
+                .defaultTag("LOG")
+                .dirPath("/sunshy")
                 .build();
         LogUtil.init(logConfig);
     }

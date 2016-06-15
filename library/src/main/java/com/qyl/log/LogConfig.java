@@ -113,7 +113,7 @@ public final class LogConfig {
             return new LogConfig(this);
         }
 
-        public void initEmptyFieldsWithDefaultValues() {
+        private void initEmptyFieldsWithDefaultValues() {
             if (logLevel == 0) {
                 logLevel = Log.ASSERT;
             }
