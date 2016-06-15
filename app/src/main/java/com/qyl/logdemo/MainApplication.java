@@ -16,13 +16,14 @@ public class MainApplication extends Application {
 
         LogConfig logConfig = new LogConfig.Builder(getApplicationContext())
                 .setLogLevel(LogUtil.VERBOSE)
-                .setNeedSaveToFile(true)
-                .addSaveRule("MainActivity", true)
-                .addSaveRule("Feed", true)
-                .prefix("prefix")
-                .suffix("suffix")
+                .setNeedSaveToDefaultFile(true)
+                .prefix("-prefix-")
+                .suffix("-suffix-")
                 .defaultTag("LOG")
                 .dirPath("/sunshy")
+                .addSaveRule("MainActivity", true)
+                .addSaveRule("Feed", true)
+                .addSaveRule("qqq", false)
                 .build();
         LogUtil.init(logConfig);
     }

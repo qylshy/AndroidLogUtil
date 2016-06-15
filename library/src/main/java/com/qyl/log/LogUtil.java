@@ -44,6 +44,10 @@ public class LogUtil {
         if (isLoggable(Log.VERBOSE)) {
             String tag = generateTag();
             Log.v(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -53,6 +57,10 @@ public class LogUtil {
     public static void v(String tag, String msg) {
         if (isLoggable(Log.VERBOSE)) {
             Log.v(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -62,18 +70,26 @@ public class LogUtil {
     public static void v(String tag, String msg, Throwable tr) {
         if (isLoggable(Log.VERBOSE)) {
             Log.v(tag, msg, tr);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)) {
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
         }
     }
 
-    public static void d(String s) {
+    public static void d(String msg) {
         if (isLoggable(Log.DEBUG)) {
             String tag = generateTag();
-            Log.d(tag, s);
+            Log.d(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
-                FileWriterHelper.getInstance().writeLog(tag, s);
+                FileWriterHelper.getInstance().writeLog(tag, msg);
             }
         }
     }
@@ -81,6 +97,10 @@ public class LogUtil {
     public static void d(String tag, String msg) {
         if (isLoggable(Log.DEBUG)) {
             Log.d(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)) {
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -90,6 +110,10 @@ public class LogUtil {
     public static void d(String tag, String msg, Throwable tr) {
         if (isLoggable(Log.DEBUG)) {
             Log.d(tag, msg, tr);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)) {
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -100,6 +124,10 @@ public class LogUtil {
         if (isLoggable(Log.INFO)) {
             String tag = generateTag();
             Log.i(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -110,6 +138,10 @@ public class LogUtil {
     public static void i(String tag, String msg) {
         if (isLoggable(Log.INFO)) {
             Log.i(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)) {
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -120,6 +152,10 @@ public class LogUtil {
         if (isLoggable(Log.INFO)) {
             String tag = generateTag();
             Log.i(tag, msg, t);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -129,6 +165,10 @@ public class LogUtil {
     public static void i(String tag, String msg, Throwable tr) {
         if (isLoggable(Log.INFO)) {
             Log.i(tag, msg, tr);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)) {
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -139,6 +179,10 @@ public class LogUtil {
         if (isLoggable(Log.WARN)) {
             String tag = generateTag();
             Log.w(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -148,6 +192,10 @@ public class LogUtil {
     public static void w(String tag, String msg) {
         if (isLoggable(Log.WARN)){
             Log.w(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -157,6 +205,10 @@ public class LogUtil {
     public static void w(String tag, Throwable tr) {
         if (isLoggable(Log.WARN)) {
             Log.w(tag, tr);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, parseException(tr));
+                return;
+            }
             if (config.isNeedSaveToFile(tag)) {
                 FileWriterHelper.getInstance().writeLog(tag, parseException(tr));
             }
@@ -166,6 +218,10 @@ public class LogUtil {
     public static void w(String tag, String msg, Throwable tr) {
         if (isLoggable(Log.WARN)){
             Log.w(tag, msg, tr);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)) {
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -176,6 +232,10 @@ public class LogUtil {
         if (isLoggable(Log.ERROR)) {
             String tag = generateTag();
             Log.e(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -185,6 +245,10 @@ public class LogUtil {
     public static void e(String tag, String msg) {
         if (isLoggable(Log.ERROR)){
             Log.e(tag, msg);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
@@ -195,6 +259,11 @@ public class LogUtil {
         if (isLoggable(Log.ERROR)) {
             String tag = generateTag();
             Log.e(tag, msg, t);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, parseException(t));
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
                 FileWriterHelper.getInstance().writeLog(tag, parseException(t));
@@ -205,6 +274,11 @@ public class LogUtil {
     public static void e(String tag, String msg, Throwable tr) {
         if (isLoggable(Log.ERROR)){
             Log.e(tag, msg, tr);
+            if (config.isNeedSaveToDefaultFile(tag)){
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, msg);
+                FileWriterHelper.getInstance().writeLog(config.defaultTag, parseException(tr));
+                return;
+            }
             if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
                 FileWriterHelper.getInstance().writeLog(tag, parseException(tr));

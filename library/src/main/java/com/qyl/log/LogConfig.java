@@ -17,7 +17,7 @@ public final class LogConfig {
 
     public int logLevel;  //日志级别
 
-    public boolean needSaveToFile;  //是否保存到文件 总开关
+    public boolean needSaveToDefaultFile;  //未指定保存文件配置是否需要保存
 
     public String dirPath;         //保存文件路径
 
@@ -27,13 +27,13 @@ public final class LogConfig {
 
     public String defaultTag;      //默认保存模块
 
-    public HashMap<String, Boolean> saveConfigMap;
+    public HashMap<String, Boolean> saveConfigMap;   //保存文件配置
 
 
     private LogConfig(Builder builder) {
         mContext = builder.context;
         logLevel = builder.logLevel;
-        needSaveToFile = builder.needSaveToFile;
+        needSaveToDefaultFile = builder.needSaveToDefaultFile;
         dirPath = builder.dirPath;
         prefix = builder.prefix;
         suffix = builder.suffix;
@@ -48,13 +48,24 @@ public final class LogConfig {
             }
         }
         return false;
+    }
 
+    public boolean isNeedSaveToDefaultFile(String tag){
+        if (needSaveToDefaultFile){
+            if (saveConfigMap != null && saveConfigMap.size() > 0){
+                if (saveConfigMap.containsKey(tag)){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     public static class Builder {
         private Context context;
         private int logLevel;
-        private boolean needSaveToFile;
+        private boolean needSaveToDefaultFile;
         private String dirPath;         //保存文件路径
         private String prefix;          //文件名前缀
         private String suffix;          //文件名后缀
@@ -70,8 +81,8 @@ public final class LogConfig {
             return this;
         }
 
-        public Builder setNeedSaveToFile(boolean needSaveToFile) {
-            this.needSaveToFile = needSaveToFile;
+        public Builder setNeedSaveToDefaultFile(boolean needSaveToDefaultFile) {
+            this.needSaveToDefaultFile = needSaveToDefaultFile;
             return this;
         }
 
