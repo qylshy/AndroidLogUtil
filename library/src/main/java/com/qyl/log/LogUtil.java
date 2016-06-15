@@ -259,10 +259,6 @@ public class LogUtil {
             String fileName = stackTrace[4].getFileName();
             tag = fileName.substring(0, fileName.length() - 5);
 
-            for (int i =0; i < stackTrace.length; i++){
-                System.out.println("qqqqqq==="+i+"==="+stackTrace[i].getClassName()+ ","+stackTrace[i].getFileName());
-            }
-
         }catch (Exception e){
             e.printStackTrace();
             tag = TAG;
