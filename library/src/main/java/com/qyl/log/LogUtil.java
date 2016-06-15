@@ -185,7 +185,7 @@ public class LogUtil {
     public static void e(String tag, String msg) {
         if (isLoggable(Log.ERROR)){
             Log.e(tag, msg);
-            if (config.needSaveToFile){
+            if (config.isNeedSaveToFile(tag)){
                 FileWriterHelper.getInstance().writeLog(tag, msg);
             }
         }
