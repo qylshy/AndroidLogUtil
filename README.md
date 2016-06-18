@@ -32,6 +32,24 @@ LogUtil.e(TAG, "e 2", new Exception("e2"));
 LogUtil.e("error1");    //无tag默认当前类名作为tag
 LogUtil.e("error2", new Exception("error2"));
 ```
+3.LogConfig 配置
+```
+setLogLevel(int logLevel)  //设置日记打印级别, LogUtil.VERBOSE 打印VERBOSE级别以上所有日志
+```
+```
+prefix(String prefix)  //指定保存日志的文件前缀
+suffix(String suffix)  //指定保存日志的文件后缀
+```
+```
+defaultTag(String tag) //指定保存到默认日志文件model
+```
+```
+dirPath(String dirPath); //指定保存文件的目录，格式:"/xxx", 不设置 默认使用当前应用名作为目录
+```
+```
+setNeedSaveToDefaultFile(boolean flag) //设置是否需要保存所有的日志到默认文件
+.addSaveRule(String tag, boolean needSave)  //配置保存模块规则，例如有个“PUBLISH”模块，则所有使用这个tag都会保存在同一个文件 //指定tag是否需要保存，如果需要保存，则会保存到指定模块文件，反之，则不保存，也不保存到默认日志文件
+```
 ##安装
 ###Gradle
 ```
@@ -48,6 +66,8 @@ compile 'com.qyl.log:library:1.1.0'
 ```
 ##注意
 - **确保有读写文件权限**
+- **保证手机有sdcard**
+- **打release包记得关闭日志 设置LogLevel最高ASSERT不打印日志**
 
 
 
