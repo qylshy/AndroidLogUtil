@@ -33,7 +33,6 @@ LogUtil.e("error1");    //无tag默认当前类名作为tag
 LogUtil.e("error2", new Exception("error2"));
 ```
 ##安装
-----
 ###Gradle
 ```
 compile 'com.qyl.log:library:1.1.0'
