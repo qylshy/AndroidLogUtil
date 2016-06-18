@@ -11,8 +11,8 @@ android日志工具类
 1.首先得在使用前初始化一次，一般在Application里面初始化
 ```
 LogConfig logConfig = new LogConfig.Builder(getApplicationContext())
-         .setLogLevel(LogUtil.VERBOSE)  /*设置日志级别，当为LogUtil.ASSERT不打印日志*/
-         .setNeedSaveToDefaultFile(true)  //设置
+         .setLogLevel(LogUtil.VERBOSE)  //设置日志级别，当为LogUtil.ASSERT不打印日志
+         .setNeedSaveToDefaultFile(true)  
          .prefix("-prefix-")
          .suffix("-suffix-")
          .defaultTag("LOG")
