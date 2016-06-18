@@ -50,6 +50,10 @@ dirPath(String dirPath); //指定保存文件的目录，格式:"/xxx", 不设�
 setNeedSaveToDefaultFile(boolean flag) //设置是否需要保存所有的日志到默认文件
 .addSaveRule(String tag, boolean needSave)  //配置保存模块规则，例如有个“PUBLISH”模块，则所有使用这个tag都会保存在同一个文件 //指定tag是否需要保存，如果需要保存，则会保存到指定模块文件，反之，则不保存，也不保存到默认日志文件
 ```
+##示例
+![生成日志文件](https://github.com/qylshy/AndroidLogUtil/blob/master/app/image/logfile.png)
+![生成的日志内容](https://github.com/qylshy/AndroidLogUtil/blob/master/app/image/logContent.png)
+
 ##安装
 ###Gradle
 ```
